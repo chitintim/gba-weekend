@@ -64,6 +64,9 @@
   .thumb{width:76px;height:58px;object-fit:cover;border-radius:9px;background:#e7e9ee}
   img.thumb{display:block}
   .thumb.ph{display:flex;align-items:center;justify-content:center;color:#7d99a6;font-weight:700;font-size:12px;background:linear-gradient(135deg,#eef4f1,#d8e6df)}
+  h2{scroll-margin-top:64px}
+  .nav{position:sticky;top:0;z-index:600;background:rgba(245,243,238,.96);backdrop-filter:blur(6px);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;margin:0 -16px 4px;border-bottom:1px solid #e7e9ee;-webkit-overflow-scrolling:touch}
+  .nav a{flex:0 0 auto;font-size:13px;color:#0f6e56;text-decoration:none;background:#fff;border:1px solid #e7e9ee;padding:5px 12px;border-radius:20px;white-space:nowrap}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -72,10 +75,11 @@
 <header><div class="in">
   <h1>🚗 Weekend Getaway</h1>
   <div class="route">Hong Kong → 珠海 Zhuhai → 中山 Zhongshan → 澳門 Macau</div>
-  <div class="meta"><span>📅 Fri 3 – Sun 5 July</span><span>👥 2 rooms · +2 in Macau</span><span>🚘 Sam drives (dual permit)</span></div>
+  <div class="meta"><span>📅 Fri 3 – Sun 5 July</span><span>👥 2 rooms · +2 in Macau</span><span>🚘 Sam drives (HK–珠海–中山)</span></div>
 </div></header>
 
 <div class="wrap">
+<nav class="nav"><a href="#mapsec">🗺️ Map</a><a href="#book">🔖 Book</a><a href="#days">📆 Days</a><a href="#hotels">🏨 Stay</a><a href="#eat">🍜 Eat</a><a href="#do">🎯 Do</a><a href="#travel">🚗 Travel</a></nav>
 
 <div class="wx">☔ <b>Weather:</b> hot &amp; humid ~30°C, <b>showers + thunderstorms likely</b> — but <b>no typhoon</b> forecast. Plan indoor-leaning; keep gardens/waterfront as sunny-day swaps. Re-check Fri: <a class="lnk" href="https://www.hko.gov.hk/en/wxinfo/currwx/fnd.htm">HKO</a> · <a class="lnk" href="https://www.smg.gov.mo/en/subpage/83/7daysforecast">Macau SMG</a>. Bring: umbrella, swimwear (hot spring), passports.</div>
 
@@ -84,12 +88,12 @@
   <table>
     <tr><td><b>Fri</b> — HK → Zhuhai</td><td>arrive ~21:00, hotpot</td></tr>
     <tr><td><b>Sat</b> — 中山 food + hot spring</td><td>yum cha · 乳鸽 · 温泉</td></tr>
-    <tr><td><b>Sun</b> — Macau day</td><td>Cotai · booked dinner · drive home</td></tr>
+    <tr><td><b>Sun</b> — Macau day</td><td>park border · walk in · booked dinner</td></tr>
   </table>
-  <div class="note">🏨 <b>Same hotel both nights</b> (simplest with a car). Recommended base: <b>a central Zhuhai hotel (top pick: Sheraton Zhuhai)</b> — keeps Saturday's Zhongshan run short and Sunday's Macau crossing easy. See Hotels below.</div>
+  <div class="note">🏨 <b>Same hotel both nights</b> (simplest with a car). Agreed base: <b>Sheraton Zhuhai</b> (Sam's on board 👍) — keeps Saturday's Zhongshan run short and Sunday's Macau crossing easy. See Hotels below.</div>
 </div>
 
-<h2><span class="e">🗺️</span> Interactive map</h2>
+<h2 id="mapsec"><span class="e">🗺️</span> Interactive map</h2>
 <div class="card" style="padding:0;overflow:hidden">
   <div id="map" style="height:400px;width:100%;background:#e7e9ee"></div>
   <div style="padding:12px 16px">
@@ -99,15 +103,15 @@
       <tr><td>🟠 base → 中山 石岐</td><td>~50 min</td></tr>
       <tr><td>🟠 石岐 → 三鄉 hot spring</td><td>~30 min</td></tr>
       <tr><td>🟠 三鄉 → base</td><td>~35 min</td></tr>
-      <tr><td>🟡 base → Macau (Cotai)</td><td>~30–40 min</td></tr>
-      <tr><td>🟡 Macau → HK (HZMB)</td><td>~1h–1h30</td></tr>
+      <tr><td>🟡 base → 橫琴口岸 (park, walk in)</td><td>~20 min</td></tr>
+      <tr><td>🟡 cross back → HK (HZMB)</td><td>~1h15–1h30</td></tr>
     </table>
   </div>
 </div>
 
-<h2><span class="e">🔖</span> To book tonight <span style="font-weight:400;font-size:14px;color:#6b7a8d">— Tim's on it</span></h2>
+<h2 id="book"><span class="e">🔖</span> To book tonight <span style="font-weight:400;font-size:14px;color:#6b7a8d">— Tim's on it</span></h2>
 <div class="card booknow"><ul class="chk">
-  <li><b>Hotel — 2 rooms × 2 nights</b>, central Zhuhai (Sheraton or chosen pick). <b>Saturday is peak — lock this first.</b></li>
+  <li><b>Hotel — 2 rooms × 2 nights at the Sheraton Zhuhai</b> (agreed). <b>Saturday is peak — lock this first.</b></li>
   <li><b>Friday dinner, table for 5</b> — hotpot 灣區九號 / 永興生蠔, or 金悅軒 seafood. Pick one &amp; reserve.</li>
   <li><b>Saturday lunch</b> — 石岐佬 queues up; call ahead or arrive at opening.</li>
   <li><b>Hot spring</b> — 泉眼溫泉 tickets on Ctrip (or pay at the door).</li>
@@ -115,7 +119,7 @@
 </ul>
 <div class="note">Also tonight (not bookings): bind <b>Alipay / WeChat Pay</b>, download <b>高德地圖 + DiDi</b>, check everyone's <b>回鄉證</b> is in date.</div></div>
 
-<h2><span class="e">📆</span> Day by day</h2>
+<h2 id="days"><span class="e">📆</span> Day by day</h2>
 
 <div class="card day">
   <h3>Friday 3 July — HK → Zhuhai</h3>
@@ -123,7 +127,7 @@
   <div class="row"><div class="time">19:00</div><div class="what"><b>Depart HK</b>, drive via 港珠澳大橋 <span class="drive">🚗 ~1h–1h15 incl. border</span></div></div>
   <div class="row"><div class="time">~20:45</div><div class="what"><b>Check in — hotel</b> (see Hotels below). Drop bags.</div></div>
   <div class="row"><div class="time">21:15</div><div class="what"><b>Dinner — hotpot 🍲</b> <b>灣區九號</b> (fresh-cut beef + 橫琴 oyster hotpot, ~¥89/pp · 7,000+ Dianping reviews). <span class="n">Alt: 永興生蠔火鍋 (oyster, ¥91) or 金悅軒 seafood + dim sum (¥147). Book a table for the group.</span>
-    <div class="links"><a class="lnk" href="https://map.baidu.com/search/%E6%B9%BE%E5%8C%BA%E4%B9%9D%E5%8F%B7%E7%81%AB%E9%94%85%20%E6%83%85%E4%BE%A3%E5%8D%97%E8%B7%AF">Map (Baidu)</a></div></div></div>
+    <div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E6%B9%BE%E5%8C%BA%E4%B9%9D%E5%8F%B7%20%E6%83%85%E4%BE%A3%E5%8D%97%E8%B7%AF&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map (高德)</a></div></div></div>
   <div class="row"><div class="time">22:45</div><div class="what"><b>Optional</b> — 情侶路 night stroll or a 足浴 to unwind. <span class="n">Or just crash before the early Zhongshan start.</span></div></div>
 </div>
 
@@ -132,41 +136,42 @@
   <p class="sub">Head north to 中山 for food, wind south via the hot spring back toward Macau</p>
   <div class="row"><div class="time">09:30</div><div class="what"><b>Drive → 中山 石岐</b> <span class="drive">🚗 ~1h–1h15</span></div></div>
   <div class="row"><div class="time">10:30</div><div class="what"><b>早茶 / Yum cha 🫖</b> — <b>陽光假日酒店</b> or <b>富華酒店</b>. Try 石岐乳鴿 dim sum, 沙溪茶角, 蘆兜粽, 杏仁餅.
-    <div class="links"><a class="lnk" href="https://map.baidu.com/search/%E9%98%B3%E5%85%89%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E4%B8%AD%E5%B1%B1">Map · 陽光假日</a><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E5%AF%8C%E5%8D%8E%E9%85%92%E5%BA%97">Map · 富華</a></div></div></div>
+    <div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E9%98%B3%E5%85%89%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map · 陽光假日</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%B8%AD%E5%B1%B1%E5%AF%8C%E5%8D%8E%E9%85%92%E5%BA%97&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map · 富華</a></div></div></div>
   <div class="row"><div class="time">13:00</div><div class="what"><b>Lunch — 石岐乳鴿 🕊️</b> <b>石岐佬中山菜館</b> (康華路36號) — the benchmark roast pigeon (~¥90/pp). Cross-sourced, go near opening to beat the queue. <span class="n">Quieter alt: 崖口乳鴿 (seaside village).</span>
-    <div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%9F%B3%E5%B2%90%E4%BD%AC%E4%B8%AD%E5%B1%B1%E8%8F%9C%E9%A6%86%20%E5%BA%B7%E5%8D%8E%E8%B7%AF36%E5%8F%B7">Map (Baidu)</a></div></div></div>
+    <div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%9F%B3%E5%B2%90%E4%BD%AC%E4%B8%AD%E5%B1%B1%E8%8F%9C%E9%A6%86&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map (高德)</a></div></div></div>
   <div class="row"><div class="time">15:00</div><div class="what"><b>Sight / activity (pick one)</b> — ☀️ <b>中山詹園</b> garden (¥60) or <b>孫中山故里</b> (free) · ☔ <b>孫文西路步行街</b> arcade · 💆 <b>影院足道 massage</b> (Sam's idea). More in "Between meals" below.
-    <div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E8%A9%B9%E5%9C%92">Map · 詹園</a></div></div></div>
+    <div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%B8%AD%E5%B1%B1%E8%A9%B9%E5%9B%AD&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map · 詹園</a></div></div></div>
   <div class="row"><div class="time">17:00</div><div class="what"><b>♨️ Hot spring — 三鄉</b> <b>泉眼溫泉</b> (big modern 溫泉 + water-park, ~¥138–188/pp, open late; on-site massage). <span class="n">Classic alt: 中山溫泉賓館 (露天温泉, garden resort). Covers the massage.</span>
-    <div class="links"><a class="lnk" href="https://map.baidu.com/search/%E6%B3%89%E7%9C%BC%E6%B8%A9%E6%B3%89%20%E4%B8%89%E4%B9%A1">Map · 泉眼</a><a class="lnk" href="https://piao.ctrip.com/ticket/dest/t3-%E6%B3%89%E7%9C%BC%E6%B8%A9%E6%B3%89.html">Tickets · Ctrip</a></div></div></div>
+    <div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E6%B3%89%E7%9C%BC%E6%B8%A9%E6%B3%89%20%E4%B8%89%E4%B9%A1&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map · 泉眼</a><a class="lnk" href="https://piao.ctrip.com/ticket/dest/t3-%E6%B3%89%E7%9C%BC%E6%B8%A9%E6%B3%89.html">Tickets · Ctrip</a></div></div></div>
   <div class="row"><div class="time">20:00</div><div class="what"><b>Dinner</b> — 三鄉瀨粉 locally, or head back toward central Zhuhai for more choice (華發商都 / 拱北 near the hotel).</div></div>
   <div class="row"><div class="time">~21:00</div><div class="what"><b>Back to hotel</b> (central Zhuhai) <span class="drive">🚗 三鄉→香洲 ~30 min</span></div></div>
 </div>
 
 <div class="card day sun">
   <h3>Sunday 5 July — Macau day → home</h3>
-  <p class="sub">Drive into Macau · +2 friends join · dinner booked · drive back</p>
-  <div class="row"><div class="time">11:00</div><div class="what"><b>Drive into Macau</b> (Sam's car has the Macau permit) → park at a <b>Cotai</b> resort <span class="drive">🚗 ~20–40 min + border</span></div></div>
-  <div class="row"><div class="time">12:00</div><div class="what"><b>Cotai 路氹 — all indoor/AC 🎰</b> Venetian canals · Londoner Crystal Palace · Galaxy 財運鑽石. Casino floor. <b>Meet the +2 here</b> (share a WeChat live pin). Egg tarts: Lord Stow's / Margaret's. ☀️ optional: 官也街 Taipa Village + 龍環葡韻 (next door).</div></div>
+  <p class="sub">Drive to the border · park · cross on foot · +2 friends join · dinner booked</p>
+  <div class="row"><div class="time">11:00</div><div class="what"><b>Drive → 橫琴口岸 (Hengqin Port)</b> &amp; park Zhuhai-side <span class="drive">🚗 ~20 min</span> <span class="n">No driving into Macau — the car stays in Zhuhai.</span></div></div>
+  <div class="row"><div class="time">11:30</div><div class="what"><b>Cross on foot 🚶</b> — Hengqin Port has co-located immigration (one quick stop). On the Macau side take the <b>LRT 輕軌</b> or a taxi to Cotai/Taipa. <span class="n">回鄉證 in hand.</span></div></div>
+  <div class="row"><div class="time">12:00</div><div class="what"><b>Cotai 路氹 — indoor/AC 🎰</b> Venetian canals · Londoner · Galaxy 財運鑽石. Casino floor. <b>Meet the +2 here</b> (share a WeChat live pin). Egg tarts: Lord Stow's / Margaret's. ☀️ optional: 官也街 + 龍環葡韻.</div></div>
   <div class="row"><div class="time">19:30</div><div class="what"><b>Dinner — ✅ BOOKED 🍽️</b> <b>Yeng Dou Jok</b>, Fong Son San Chun III, 104-124 R. da Escola Náutica, <b>Taipa</b> (right by Cotai). Table booked.
     <div class="links"><a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Yeng+Dou+Jok+R.+da+Escola+Nautica+Taipa+Macau">Map (Google)</a></div></div></div>
-  <div class="row"><div class="time">~22:00</div><div class="what"><b>Drive back to HK</b> via HZMB <span class="drive">🚗 ~1h–1h30 incl. border</span>. Bridge runs 24h — no ferry to catch.</div></div>
+  <div class="row"><div class="time">~21:30</div><div class="what"><b>Cross back at 橫琴口岸</b>, grab the car &amp; <b>drive HK via HZMB</b> <span class="drive">🚗 ~1h15–1h30</span>. <span class="n">Alt: park at the HZMB Zhuhai Port &amp; take the 金巴 shuttle across instead — keeps the car at the bridge for the drive home. Sam to finalise.</span></div></div>
 </div>
 
-<h2><span class="e">🏨</span> Hotels — ¥400–800/night (2 rooms, same base both nights)</h2>
+<h2 id="hotels"><span class="e">🏨</span> Hotels — ¥400–800/night (2 rooms, same base both nights)</h2>
 <div class="card">
   <div class="note" style="margin-top:0">Sat we’re up in <b>Zhongshan (north)</b>, Sun we’re in <b>Macau (south)</b>. A <b>central Zhuhai</b> base keeps Saturday’s drive moderate (~50 min) with Macau very close (~30 min). Hengqin hotels are 10–15 min from Macau but add ~30 min each way to Zhongshan on Saturday.</div>
   <div class="note" style="font-weight:700;color:var(--ink);margin-bottom:2px">🟢 Central Zhuhai — best all-round for this trip</div>
   <div class="hotel pick">
     <img class="thumb" src="img/sheraton.jpg" alt="Sheraton Zhuhai" loading="lazy">
     <div><div class="nm">Sheraton Zhuhai 珠海華發喜來登 <span class="badge">Recommended</span></div><div class="ar">華發商都 / 十字門 · faces Macau · ~50 min to Zhongshan · pool · 352 reviews</div>
-      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Sheraton%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E5%8D%8E%E5%8F%91%E5%96%9C%E6%9D%A5%E7%99%BB%E9%85%92%E5%BA%97">Map</a></div></div>
+      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Sheraton%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%8F%A0%E6%B5%B7%E5%8D%8E%E5%8F%91%E5%96%9C%E6%9D%A5%E7%99%BB%E9%85%92%E5%BA%97&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div>
     <div class="pr"><div class="p">~¥600</div><div class="r">★ 4.4</div></div>
   </div>
   <div class="hotel">
     <img class="thumb" src="img/hilton-zhuhai.jpg" alt="Hilton Zhuhai" loading="lazy">
     <div><div class="nm">Hilton Zhuhai 珠海希爾頓 <span class="tag">2nd choice</span></div><div class="ar">灣仔 · sea-view facing Macau · central &amp; lively</div>
-      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Hilton%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E5%B8%8C%E5%B0%94%E9%A1%BF%E9%85%92%E5%BA%97">Map</a></div></div>
+      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Hilton%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%8F%A0%E6%B5%B7%E5%B8%8C%E5%B0%94%E9%A1%BF%E9%85%92%E5%BA%97&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div>
     <div class="pr"><div class="p">~¥560</div><div class="r">★ 4.5</div></div>
   </div>
   <div class="hotel">
@@ -178,14 +183,14 @@
   <div class="hotel">
     <img class="thumb" src="img/atour.jpg" alt="Atour Light Zhuhai" loading="lazy">
     <div><div class="nm">Atour Light 亞朵輕居 <span class="tag">local brand</span></div><div class="ar">情侶路 · seaside 香洲 · popular domestic mid-range · 102 reviews</div>
-      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Atour%20Light%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E4%BA%9E%E6%9C%B5%E8%BC%95%E5%B1%85%20%E6%83%85%E4%BE%B6%E8%B7%AF">Map</a></div></div>
+      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Atour%20Light%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%BA%9A%E6%9C%B5%E8%BD%BB%E5%B1%85%20%E6%83%85%E4%BE%A3%E8%B7%AF&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div>
     <div class="pr"><div class="p">~¥400</div><div class="r">★ 4.5</div></div>
   </div>
   <div class="note" style="font-weight:700;color:var(--ink);margin-bottom:2px">🔵 Hengqin — closest to Macau, but +30 min to Zhongshan on Sat</div>
   <div class="hotel">
     <img class="thumb" src="img/hyatt-regency.jpg" alt="Hyatt Regency Hengqin" loading="lazy">
     <div><div class="nm">Hyatt Regency Hengqin 橫琴凱悦</div><div class="ar">橫琴 · 5-star · next to Macau/Cotai · mall-connected (創新方)</div>
-      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Hyatt%20Regency%20Hengqin&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://map.baidu.com/search/%E6%A8%AA%E7%90%B4%E5%87%B1%E6%82%A6%E9%85%92%E5%BA%97">Map</a></div></div>
+      <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Hyatt%20Regency%20Hengqin&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E6%A8%AA%E7%90%B4%E5%87%AF%E6%82%A6%E9%85%92%E5%BA%97&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div>
     <div class="pr"><div class="p">~¥700</div><div class="r">★ 4.2</div></div>
   </div>
   <div class="hotel">
@@ -200,39 +205,39 @@
       <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Hilton%20Garden%20Inn%20Zhuhai%20Hengqin&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a></div></div>
     <div class="pr"><div class="p">~¥430</div><div class="r">★ 4.4</div></div>
   </div>
-  <div class="note">Top pick: <b>Sheraton Zhuhai</b> — central, best-reviewed (352), short Saturday drive. Ratings shown are Google (same source for all, so comparable). Prices = live Google Hotels for the weekend (per room/night, ≈RMB) — reconfirm at booking. <b>2 rooms × 2 nights</b> at the Sheraton ≈ <b>¥2,400 total</b>. <span style="color:#9aa6b2">Photos: Google.</span></div>
+  <div class="note">Agreed pick: <b>Sheraton Zhuhai</b> — central, best-reviewed (352), faces Macau. Ratings shown are Google (same source for all, so comparable). Prices = live Google Hotels for the weekend (per room/night, ≈RMB) — reconfirm at booking. <b>2 rooms × 2 nights</b> at the Sheraton ≈ <b>¥2,400 total</b>. <span style="color:#9aa6b2">Photos: Google.</span></div>
 </div>
 
-<h2><span class="e">🍜</span> Where to eat (Dianping-vetted)</h2>
+<h2 id="eat"><span class="e">🍜</span> Where to eat (Dianping-vetted)</h2>
 <div class="card">
   <div class="note" style="margin-top:0">Chosen for <b>high review volume on 大眾點評 (Dianping)</b> — long-established locals' favourites, <b>not</b> promoted/paid listings. The number on the right = review count (higher = more corroborated). Thin (&lt;500-review) and lopsided/bimodal listings were skipped.</div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:10px 0 2px">Friday · Zhuhai — central 拱北 / 香洲, near the hotel</div>
-  <div class="hotel"><div><div class="nm">灣區九號 生蠔牛肉火鍋 <span class="tag">hotpot</span></div><div class="ar">情侶南路 · beef + 橫琴 oyster hotpot · Sam's pick</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%81%A3%E5%8D%80%E4%B9%9D%E8%99%9F%E7%81%AB%E9%8D%8B%20%E6%83%85%E4%BE%B6%E5%8D%97%E8%B7%AF">Map</a></div></div><div class="pr"><div class="p">¥89</div><div class="r">7,077</div></div></div>
-  <div class="hotel"><div><div class="nm">永興生蠔火鍋 <span class="tag">hotpot</span></div><div class="ar">拱北水灣路 · Zhuhai oyster hotpot</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E6%B0%B8%E8%88%88%E7%94%9F%E8%A0%94%E7%81%AB%E9%8D%8B%20%E6%8B%B1%E5%8C%97%E6%B0%B4%E7%81%A3%E8%B7%AF">Map</a></div></div><div class="pr"><div class="p">¥91</div><div class="r">7,288</div></div></div>
-  <div class="hotel"><div><div class="nm">金悅軒海鮮酒家 <span class="tag">seafood</span></div><div class="ar">拱北 · seafood + dim sum · easy group flagship</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E9%87%91%E6%82%85%E8%BB%92%E6%B5%B7%E9%AE%AE%E9%85%92%E5%AE%B6%20%E6%8B%B1%E5%8C%97">Map</a></div></div><div class="pr"><div class="p">¥147</div><div class="r">18,268</div></div></div>
+  <div class="hotel"><div><div class="nm">灣區九號 生蠔牛肉火鍋 <span class="tag">hotpot</span></div><div class="ar">情侶南路 · beef + 橫琴 oyster hotpot · Sam's pick</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E6%B9%BE%E5%8C%BA%E4%B9%9D%E5%8F%B7%20%E6%83%85%E4%BE%A3%E5%8D%97%E8%B7%AF&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥89</div><div class="r">7,077</div></div></div>
+  <div class="hotel"><div><div class="nm">永興生蠔火鍋 <span class="tag">hotpot</span></div><div class="ar">拱北水灣路 · Zhuhai oyster hotpot</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E6%B0%B8%E5%85%B4%E7%94%9F%E8%9A%9D%E7%81%AB%E9%94%85%20%E6%8B%B1%E5%8C%97&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥91</div><div class="r">7,288</div></div></div>
+  <div class="hotel"><div><div class="nm">金悅軒海鮮酒家 <span class="tag">seafood</span></div><div class="ar">拱北 · seafood + dim sum · easy group flagship</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E9%87%91%E6%82%A6%E8%BD%A9%E6%B5%B7%E9%B2%9C%E9%85%92%E5%AE%B6%20%E6%8B%B1%E5%8C%97&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥147</div><div class="r">18,268</div></div></div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:12px 0 2px">Saturday · 中山 Zhongshan</div>
-  <div class="hotel"><div><div class="nm">石岐佬中山菜館 <span class="tag">Zhongshan cuisine</span></div><div class="ar">石岐乳鴿 &amp; local classics · the benchmark</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%9F%B3%E5%B2%90%E4%BD%AC%E4%B8%AD%E5%B1%B1%E8%8F%9C%E9%A4%A8%20%E5%BA%B7%E8%8F%AF%E8%B7%AF">Map</a></div></div><div class="pr"><div class="p">¥93</div><div class="r">15,708</div></div></div>
-  <div class="hotel"><div><div class="nm">紅日飯店·中山脆肉鯇 <span class="tag">specialty</span></div><div class="ar">小欖 · famous crispy grass-carp (脆肉鯇)</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%B4%85%E6%97%A5%E9%A3%AF%E5%BA%97%20%E4%B8%AD%E5%B1%B1%E8%84%86%E8%82%89%E9%AF%87%20%E5%B0%8F%E6%AC%96">Map</a></div></div><div class="pr"><div class="p">¥92</div><div class="r">6,422</div></div></div>
-  <div class="hotel"><div><div class="nm">綠野仙蹤生態食府 <span class="tag">garden</span></div><div class="ar">by 詹園 · garden dining · pairs with the garden visit</div><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%B6%A0%E9%87%8E%E4%BB%99%E8%B9%A4%E7%94%9F%E6%85%8B%E9%A3%9F%E5%BA%9C%20%E4%B8%AD%E5%B1%B1%E8%A9%B9%E5%9C%92">Map</a></div></div><div class="pr"><div class="p">¥100</div><div class="r">3,404</div></div></div>
+  <div class="hotel"><div><div class="nm">石岐佬中山菜館 <span class="tag">Zhongshan cuisine</span></div><div class="ar">石岐乳鴿 &amp; local classics · the benchmark</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%9F%B3%E5%B2%90%E4%BD%AC%E4%B8%AD%E5%B1%B1%E8%8F%9C%E9%A6%86&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥93</div><div class="r">15,708</div></div></div>
+  <div class="hotel"><div><div class="nm">紅日飯店·中山脆肉鯇 <span class="tag">specialty</span></div><div class="ar">小欖 · famous crispy grass-carp (脆肉鯇)</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%BA%A2%E6%97%A5%E9%A5%AD%E5%BA%97%20%E8%84%86%E8%82%89%E9%B2%A9%20%E5%B0%8F%E6%A6%84&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥92</div><div class="r">6,422</div></div></div>
+  <div class="hotel"><div><div class="nm">綠野仙蹤生態食府 <span class="tag">garden</span></div><div class="ar">by 詹園 · garden dining · pairs with the garden visit</div><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%BB%BF%E9%87%8E%E4%BB%99%E8%B8%AA%E7%94%9F%E6%80%81%E9%A3%9F%E5%BA%9C&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div><div class="pr"><div class="p">¥100</div><div class="r">3,404</div></div></div>
   <div class="note"><b>早茶 / yum cha (Sat AM):</b> 石岐佬 also does dim sum, or a classic hotel 早茶 (陽光假日 / 富華). Try 石岐乳鴿, 沙溪茶角, 杏仁餅.</div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:12px 0 2px">Sunday · Macau (Taipa)</div>
   <div class="hotel"><div><div class="nm">Yeng Dou Jok 🍽️ <span class="tag">✅ booked</span></div><div class="ar">Taipa · R. da Escola Náutica · dinner reserved</div><div class="links"><a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Yeng+Dou+Jok+R.+da+Escola+Nautica+Taipa+Macau">Map</a></div></div><div class="pr"><div class="p">—</div><div class="r">booked</div></div></div>
   <div class="note">Lunch/snacks: 官也街 Taipa Village + egg tarts (Lord Stow's / Margaret's).</div>
 </div>
 
-<h2><span class="e">🎯</span> Between meals — things to do</h2>
+<h2 id="do"><span class="e">🎯</span> Between meals — things to do</h2>
 <div class="card">
   <div class="note" style="margin-top:0">Fillers for the gaps. <b>☀️</b> = nicer in good weather · <b>☔</b> = indoor / rain-OK. Numbers = 大眾點評 review counts (picked high-volume, non-promoted spots).</div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:12px 0 2px">Friday eve · Zhuhai — by the central hotels</div>
-  <div class="row"><div class="what">🌆 <b>情侶路 seaside walk</b> — promenade past 珠海漁女 statue &amp; the 日月貝 opera house. Easy after-dinner stroll. ☀️/mild eve<div class="links"><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E6%83%85%E4%BE%A3%E8%B7%AF">Map · 情侶路</a><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E5%A4%A7%E5%89%A7%E9%99%A2">日月貝</a></div></div></div>
+  <div class="row"><div class="what">🌆 <b>情侶路 seaside walk</b> — promenade past 珠海漁女 statue &amp; the 日月貝 opera house. Easy after-dinner stroll. ☀️/mild eve<div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%8F%A0%E6%B5%B7%E6%83%85%E4%BE%A3%E8%B7%AF&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">Map · 情侶路</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E7%8F%A0%E6%B5%B7%E5%A4%A7%E5%89%A7%E9%99%A2&city=%E7%8F%A0%E6%B5%B7&src=gbaweekend&callnative=0">日月貝</a></div></div></div>
   <div class="row"><div class="what">💆 <b>足浴 / foot massage</b> — unwind after the drive (central 拱北/香洲, ~¥140). ☔ <span class="n">See Saturday picks — same chains.</span></div></div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:12px 0 2px">Saturday · 中山 Zhongshan — around the meals</div>
-  <div class="row"><div class="what">🏛️ <b>孫中山故里旅遊區</b> (南朗翠亨) — big heritage park: 孫中山故居 + museums, <b>free</b>. Sits on the Zhuhai↔石岐 route. ☀️ + indoor halls<div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E5%AD%99%E4%B8%AD%E5%B1%B1%E6%95%85%E9%87%8C%E6%97%85%E6%B8%B8%E5%8C%BA">Map</a></div></div></div>
-  <div class="row"><div class="what">🎬 <b>中山影視城</b> (南朗) — republic-era film sets, right by 故里 — pair the two. <span class="tag">3,972 rev</span><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E5%BD%B1%E8%A7%86%E5%9F%8E">Map</a></div></div></div>
-  <div class="row"><div class="what">🎡 <b>幻彩摩天輪 + 岐江公園</b> (石岐) — riverside Ferris wheel, best at dusk. <span class="tag">4,001 rev</span><div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E5%B9%BB%E5%BD%A9%E6%91%A9%E5%A4%A9%E8%BD%AE">Map</a></div></div></div>
-  <div class="row"><div class="what">🛍️ <b>孫文西路步行街</b> (石岐) — historic covered arcade + snacks, rain-OK. ☔<div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E5%AD%99%E6%96%87%E8%A5%BF%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97">Map</a></div></div></div>
-  <div class="row"><div class="what">💆 <b>影院足道 / SPA massage</b> (central 石岐, ~¥140–160) — Sam's idea: foot massage while you watch a film. 嶺南故事 <span class="tag">2,776 rev</span> · 康福德市中心店 <span class="tag">2,422 rev</span>. ☔<div class="links"><a class="lnk" href="https://map.baidu.com/search/%E5%B2%AD%E5%8D%97%E6%95%85%E4%BA%8B%E5%BD%B1%E9%99%A2%E8%B6%B3%E7%96%97%20%E4%B8%AD%E5%B1%B1%E5%85%B4%E4%B8%AD%E5%B9%BF%E5%9C%BA">Map · 嶺南故事</a><a class="lnk" href="https://map.baidu.com/search/%E5%BA%B7%E7%A6%8F%E5%BE%B7%E4%B8%AD%E5%B1%B1%E5%88%A9%E5%92%8C%E5%B9%BF%E5%9C%BA">康福德</a></div></div></div>
-  <div class="row"><div class="what">🌊 <b>hot-day swap:</b> 中山長江水世界 water-park <span class="tag">6,132 rev</span> — or just keep the 泉眼溫泉 evening plan. ☀️<div class="links"><a class="lnk" href="https://map.baidu.com/search/%E4%B8%AD%E5%B1%B1%E9%95%BF%E6%B1%9F%E6%B0%B4%E4%B8%96%E7%95%8C">Map</a></div></div></div>
+  <div class="row"><div class="what">🏛️ <b>孫中山故里旅遊區</b> (南朗翠亨) — big heritage park: 孫中山故居 + museums, <b>free</b>. Sits on the Zhuhai↔石岐 route. ☀️ + indoor halls<div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E5%AD%99%E4%B8%AD%E5%B1%B1%E6%95%85%E5%B1%85&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div></div>
+  <div class="row"><div class="what">🎬 <b>中山影視城</b> (南朗) — republic-era film sets, right by 故里 — pair the two. <span class="tag">3,972 rev</span><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%B8%AD%E5%B1%B1%E5%BD%B1%E8%A7%86%E5%9F%8E&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div></div>
+  <div class="row"><div class="what">🎡 <b>幻彩摩天輪 + 岐江公園</b> (石岐) — riverside Ferris wheel, best at dusk. <span class="tag">4,001 rev</span><div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%B8%AD%E5%B1%B1%E5%B9%BB%E5%BD%A9%E6%91%A9%E5%A4%A9%E8%BD%AE&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div></div>
+  <div class="row"><div class="what">🛍️ <b>孫文西路步行街</b> (石岐) — historic covered arcade + snacks, rain-OK. ☔<div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E5%AD%99%E6%96%87%E8%A5%BF%E8%B7%AF%E6%AD%A5%E8%A1%8C%E8%A1%97&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div></div>
+  <div class="row"><div class="what">💆 <b>影院足道 / SPA massage</b> (central 石岐, ~¥140–160) — Sam's idea: foot massage while you watch a film. 嶺南故事 <span class="tag">2,776 rev</span> · 康福德市中心店 <span class="tag">2,422 rev</span>. ☔<div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E5%B2%AD%E5%8D%97%E6%95%85%E4%BA%8B&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map · 嶺南故事</a><a class="lnk" href="https://uri.amap.com/search?keyword=%E5%BA%B7%E7%A6%8F%E5%BE%B7%20%E5%88%A9%E5%92%8C%E5%B9%BF%E5%9C%BA&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">康福德</a></div></div></div>
+  <div class="row"><div class="what">🌊 <b>hot-day swap:</b> 中山長江水世界 water-park <span class="tag">6,132 rev</span> — or just keep the 泉眼溫泉 evening plan. ☀️<div class="links"><a class="lnk" href="https://uri.amap.com/search?keyword=%E4%B8%AD%E5%B1%B1%E9%95%BF%E6%B1%9F%E6%B0%B4%E4%B8%96%E7%95%8C&city=%E4%B8%AD%E5%B1%B1&src=gbaweekend&callnative=0">Map</a></div></div></div>
   <div class="note" style="font-weight:700;color:var(--acc2);margin:12px 0 2px">Sunday · Macau — between arrival &amp; dinner</div>
   <div class="row"><div class="what">🎰 <b>Cotai resorts</b> (indoor, storm-proof) — Venetian gondolas + teamLab, Londoner, Galaxy 天浪淘園. Right where you park. ☔</div></div>
   <div class="row"><div class="what">⛪ <b>大三巴牌坊 + 議事亭前地</b> — classic old-town Macau, ~15 min from Cotai. ☀️<div class="links"><a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Ruins%20of%20St%20Pauls%20Macau">Map</a></div></div></div>
@@ -240,14 +245,14 @@
   <div class="row"><div class="what">🏘️ <b>官也街 + 龍環葡韻</b> (Taipa) — Portuguese houses &amp; egg tarts, next to your booked dinner. ☀️<div class="links"><a class="lnk" href="https://www.google.com/maps/search/?api=1&query=Rua%20do%20Cunha%20Taipa%20Macau">Map</a></div></div></div>
 </div>
 
-<h2><span class="e">🚗</span> Driving times (Sam's car)</h2>
+<h2 id="travel"><span class="e">🚗</span> Driving times (Sam's car)</h2>
 <div class="card"><table>
-  <tr><td>HK → Zhuhai (HZMB)</td><td>~1h–1h15</td></tr>
-  <tr><td>Zhuhai ↔ 中山</td><td>~1h</td></tr>
-  <tr><td>中山 三鄉 → Hengqin</td><td>~40 min</td></tr>
-  <tr><td>Hengqin → Macau (Cotai)</td><td>~20–40 min</td></tr>
-  <tr><td>Macau → HK (HZMB)</td><td>~1h–1h30</td></tr>
-</table><div class="note">Free/cheap parking at Cotai resorts (validate with a spend). Bridge is fine 24h unless a real T8.</div></div>
+  <tr><td>HK → Zhuhai base (HZMB)</td><td>~1h–1h15</td></tr>
+  <tr><td>Zhuhai base ↔ 中山 石岐</td><td>~50 min</td></tr>
+  <tr><td>三鄉 → Zhuhai base</td><td>~30 min</td></tr>
+  <tr><td>Zhuhai base → 橫琴口岸 (Macau crossing)</td><td>~20 min</td></tr>
+  <tr><td>橫琴口岸 → HZMB → HK</td><td>~1h15–1h30</td></tr>
+</table><div class="note"><b>No driving into Macau</b> — park at 橫琴口岸 (big car park), cross on foot (co-located immigration), then Macau LRT/taxi. Bridge runs 24h unless a real T8.</div></div>
 
 <h2><span class="e">🎒</span> Everyone — prep &amp; bring</h2>
 <div class="card"><ul class="chk">
@@ -266,27 +271,29 @@
  var col={fri:"#0f6e56",sat:"#c2410c",sun:"#a16207",alt:"#6b7a8d"};
  var stops=[
   {c:[22.295,113.938],d:"fri",t:"Hong Kong (HZMB)",time:"Fri 19:00 · depart",note:"Drive via the bridge",nav:"g:Hong Kong Zhuhai Macau Bridge Hong Kong Port"},
-  {c:[22.17343,113.52068],d:"fri",t:"Sheraton Zhuhai (base)",time:"Fri ~20:45 · check in",note:"華發商都 / 十字門 · Fri hotpot nearby",img:"img/sheraton.jpg",nav:"b:珠海华发喜来登酒店"},
-  {c:[22.53281,113.37606],d:"sat",t:"中山 石岐",time:"Sat 10:30 早茶 · 13:00 乳鴿",note:"摩天輪 & 步行街 in the evening",nav:"b:中山石岐"},
-  {c:[22.44527,113.52302],d:"sat",t:"孫中山故居 (南朗)",time:"Sat · sight en route",note:"Free heritage park + 影視城",nav:"b:孙中山故居 翠亨村"},
-  {c:[22.34622,113.45197],d:"sat",t:"三鄉 hot spring ♨️",time:"Sat 17:00",note:"泉眼溫泉 / 中山溫泉",nav:"b:泉眼温泉 三乡"},
-  {c:[22.15273,113.55839],d:"sun",t:"Macau · Taipa / Cotai",time:"Sun 12:00 · dinner 19:30",note:"Casino, egg tarts, booked dinner",nav:"g:Taipa Macau"},
+  {c:[22.17343,113.52068],d:"fri",t:"Sheraton Zhuhai (base)",time:"Fri ~20:45 · check in",note:"華發商都 / 十字門 · Fri hotpot nearby",img:"img/sheraton.jpg",nav:"a"},
+  {c:[22.53281,113.37606],d:"sat",t:"中山 石岐",time:"Sat 10:30 早茶 · 13:00 乳鴿",note:"摩天輪 & 步行街 in the evening",nav:"a"},
+  {c:[22.44527,113.52302],d:"sat",t:"孫中山故居 (南朗)",time:"Sat · sight en route",note:"Free heritage park + 影視城",nav:"a"},
+  {c:[22.34622,113.45197],d:"sat",t:"三鄉 hot spring ♨️",time:"Sat 17:00",note:"泉眼溫泉 / 中山溫泉",nav:"a"},
+  {c:[22.14055,113.54296],d:"sun",t:"橫琴口岸 (park & walk)",time:"Sun ~11:30 · cross on foot",note:"Park Zhuhai-side, walk into Macau",nav:"a"},
+  {c:[22.15273,113.55839],d:"sun",t:"Macau · Taipa / Cotai",time:"Sun 12:00 · dinner 19:30",note:"On foot / LRT from Hengqin Port · casino, egg tarts, booked dinner",nav:"g:Taipa Macau"},
   {c:[22.19752,113.54126],d:"sun",t:"大三巴 (old town)",time:"Sun · optional",note:"Ruins of St Paul + Senado Sq",nav:"g:Ruins of St Pauls Macau"},
-  {c:[22.0997,113.52998],d:"alt",t:"Chimelong Ocean Kingdom",time:"optional big day-out",note:"Hengqin · world-class marine park",nav:"b:珠海长隆海洋王国"},
-  {c:[22.12754,113.51218],d:"alt",t:"Hyatt Regency Hengqin",time:"alt hotel",note:"closest to Macau",img:"img/hyatt-regency.jpg",nav:"b:横琴凯悦酒店"}
+  {c:[22.0997,113.52998],d:"alt",t:"Chimelong Ocean Kingdom",time:"optional big day-out",note:"Hengqin · world-class marine park",nav:"a"},
+  {c:[22.12754,113.51218],d:"alt",t:"Hyatt Regency Hengqin",time:"alt hotel",note:"closest to Macau",img:"img/hyatt-regency.jpg",nav:"a"}
  ];
  var map=L.map("map",{scrollWheelZoom:false});
  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(map);
  var pts=[];
  stops.forEach(function(s){
-   var q=s.nav.slice(2);
-   var nav=s.nav.charAt(0)==="g"?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q):"https://map.baidu.com/search/"+encodeURIComponent(q);
+   var nav=s.nav.charAt(0)==="g"
+     ? "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(s.nav.slice(2))
+     : "https://uri.amap.com/marker?position="+s.c[1]+","+s.c[0]+"&name="+encodeURIComponent(s.t)+"&coordinate=wgs84&src=gbaweekend&callnative=0";
    var im=s.img?'<img src="'+s.img+'" style="width:100%;border-radius:6px;margin-top:5px;display:block">':"";
-   var html='<div style="min-width:168px"><b>'+s.t+'</b><br><span style="color:'+col[s.d]+'">'+s.time+'</span><br>'+s.note+im+'<br><a href="'+nav+'" target="_blank" rel="noopener">Navigate ↗</a></div>';
+   var html='<div style="min-width:170px"><b>'+s.t+'</b><br><span style="color:'+col[s.d]+'">'+s.time+'</span><br>'+s.note+im+'<br><a href="'+nav+'" target="_blank" rel="noopener">Navigate ↗</a></div>';
    L.circleMarker(s.c,{radius:9,color:"#fff",weight:2,fillColor:col[s.d],fillOpacity:1}).addTo(map).bindPopup(html);
    pts.push(s.c);
  });
- var route=[stops[0].c,stops[1].c,stops[2].c,stops[4].c,stops[1].c,stops[5].c,stops[0].c];
+ var route=[stops[0].c,stops[1].c,stops[2].c,stops[4].c,stops[1].c,stops[5].c,stops[6].c];
  L.polyline(route,{color:"#6b7a8d",weight:2,dashArray:"5,6",opacity:.6}).addTo(map);
  map.fitBounds(L.latLngBounds(pts).pad(0.15));
 })();
