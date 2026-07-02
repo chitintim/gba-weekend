@@ -52,6 +52,9 @@
   ul.chk li{padding:6px 0 6px 26px;position:relative;font-size:14px;border-top:1px solid #f0f1f4}
   ul.chk li:first-child{border-top:0}
   ul.chk li:before{content:"☐";position:absolute;left:2px;color:#0f6e56;font-size:15px}
+  ul.chk li.done:before{content:"☑"}
+  ul.chk li.done{color:#6b7a8d}
+  .booknow{border:1px solid #fed7aa;background:#fff7ed}
   .wx{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 16px;font-size:14px;margin:12px 0}
   .foot{text-align:center;color:#9aa6b2;font-size:12px;margin-top:28px}
   .tag{font-size:11px;color:#0f6e56;background:#eef4f1;padding:1px 7px;border-radius:10px;margin-left:6px}
@@ -62,6 +65,8 @@
   img.thumb{display:block}
   .thumb.ph{display:flex;align-items:center;justify-content:center;color:#7d99a6;font-weight:700;font-size:12px;background:linear-gradient(135deg,#eef4f1,#d8e6df)}
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 <header><div class="in">
@@ -83,6 +88,32 @@
   </table>
   <div class="note">🏨 <b>Same hotel both nights</b> (simplest with a car). Recommended base: <b>a central Zhuhai hotel (top pick: Sheraton Zhuhai)</b> — keeps Saturday's Zhongshan run short and Sunday's Macau crossing easy. See Hotels below.</div>
 </div>
+
+<h2><span class="e">🗺️</span> Interactive map</h2>
+<div class="card" style="padding:0;overflow:hidden">
+  <div id="map" style="height:400px;width:100%;background:#e7e9ee"></div>
+  <div style="padding:12px 16px">
+    <div class="note" style="margin:0 0 8px">Tap a pin for the stop, planned time, a photo &amp; a navigation link. Pins are coloured by day. <span class="n">(Map tiles may load slowly on mainland mobile data.)</span></div>
+    <table>
+      <tr><td>🟢 HK → Zhuhai base (HZMB)</td><td>~1h–1h15</td></tr>
+      <tr><td>🟠 base → 中山 石岐</td><td>~50 min</td></tr>
+      <tr><td>🟠 石岐 → 三鄉 hot spring</td><td>~30 min</td></tr>
+      <tr><td>🟠 三鄉 → base</td><td>~35 min</td></tr>
+      <tr><td>🟡 base → Macau (Cotai)</td><td>~30–40 min</td></tr>
+      <tr><td>🟡 Macau → HK (HZMB)</td><td>~1h–1h30</td></tr>
+    </table>
+  </div>
+</div>
+
+<h2><span class="e">🔖</span> To book tonight <span style="font-weight:400;font-size:14px;color:#6b7a8d">— Tim's on it</span></h2>
+<div class="card booknow"><ul class="chk">
+  <li><b>Hotel — 2 rooms × 2 nights</b>, central Zhuhai (Sheraton or chosen pick). <b>Saturday is peak — lock this first.</b></li>
+  <li><b>Friday dinner, table for 5</b> — hotpot 灣區九號 / 永興生蠔, or 金悅軒 seafood. Pick one &amp; reserve.</li>
+  <li><b>Saturday lunch</b> — 石岐佬 queues up; call ahead or arrive at opening.</li>
+  <li><b>Hot spring</b> — 泉眼溫泉 tickets on Ctrip (or pay at the door).</li>
+  <li class="done"><b>Sunday dinner</b> — already booked</li>
+</ul>
+<div class="note">Also tonight (not bookings): bind <b>Alipay / WeChat Pay</b>, download <b>高德地圖 + DiDi</b>, check everyone's <b>回鄉證</b> is in date.</div></div>
 
 <h2><span class="e">📆</span> Day by day</h2>
 
@@ -124,11 +155,11 @@
 
 <h2><span class="e">🏨</span> Hotels — ¥400–800/night (2 rooms, same base both nights)</h2>
 <div class="card">
-  <div class="note" style="margin-top:0">Sat we’re up in <b>Zhongshan (north)</b>, Sun we’re in <b>Macau (south)</b>. A <b>central Zhuhai</b> base keeps Saturday’s drive short (~40 min) with Macau still easy (~30 min). Hengqin hotels are 10–15 min from Macau but add ~30 min each way to Zhongshan on Saturday.</div>
+  <div class="note" style="margin-top:0">Sat we’re up in <b>Zhongshan (north)</b>, Sun we’re in <b>Macau (south)</b>. A <b>central Zhuhai</b> base keeps Saturday’s drive moderate (~50 min) with Macau very close (~30 min). Hengqin hotels are 10–15 min from Macau but add ~30 min each way to Zhongshan on Saturday.</div>
   <div class="note" style="font-weight:700;color:var(--ink);margin-bottom:2px">🟢 Central Zhuhai — best all-round for this trip</div>
   <div class="hotel pick">
     <img class="thumb" src="img/sheraton.jpg" alt="Sheraton Zhuhai" loading="lazy">
-    <div><div class="nm">Sheraton Zhuhai 珠海華發喜來登 <span class="badge">Recommended</span></div><div class="ar">華發商都 · central 香洲 · ~40 min to Zhongshan · pool · 352 reviews</div>
+    <div><div class="nm">Sheraton Zhuhai 珠海華發喜來登 <span class="badge">Recommended</span></div><div class="ar">華發商都 / 十字門 · faces Macau · ~50 min to Zhongshan · pool · 352 reviews</div>
       <div class="links"><a class="lnk" href="https://www.google.com/travel/search?q=Sheraton%20Zhuhai&checkin=2026-07-03&checkout=2026-07-05">Book / compare</a><a class="lnk" href="https://map.baidu.com/search/%E7%8F%A0%E6%B5%B7%E5%8D%8E%E5%8F%91%E5%96%9C%E6%9D%A5%E7%99%BB%E9%85%92%E5%BA%97">Map</a></div></div>
     <div class="pr"><div class="p">~¥600</div><div class="r">★ 4.4</div></div>
   </div>
@@ -218,19 +249,47 @@
   <tr><td>Macau → HK (HZMB)</td><td>~1h–1h30</td></tr>
 </table><div class="note">Free/cheap parking at Cotai resorts (validate with a spend). Bridge is fine 24h unless a real T8.</div></div>
 
-<h2><span class="e">✅</span> Book &amp; prep now</h2>
+<h2><span class="e">🎒</span> Everyone — prep &amp; bring</h2>
 <div class="card"><ul class="chk">
-  <li><b>Hotel</b> — 2 rooms × 2 nights (central Zhuhai — Sheraton or similar) — Sat is peak, book today</li>
-  <li><b>Fri hotpot</b> — table for 5 at 灣區九號</li>
-  <li><b>Hot spring</b> — buy 泉眼溫泉 tickets on Ctrip (or pay on arrival)</li>
-  <li><b>Alipay / WeChat Pay</b> — bind a card before crossing (cash/HK cards not accepted)</li>
-  <li><b>Apps</b> — DiDi (backup), 高德地圖 (not Google Maps in the mainland)</li>
-  <li><b>Docs (everyone)</b> — 回鄉證 + HK ID + HK passport · Sam: car permits + insurance</li>
-  <li><b>+2 friends</b> — agree their route to Macau + Cotai meet point; pre-book 7 return seats if not driving with you</li>
-  <li>Sunday dinner ✅ already booked</li>
+  <li><b>Alipay / WeChat Pay</b> — bind a card before crossing (cash / HK cards not accepted mainland)</li>
+  <li><b>Apps</b> — 高德地圖 (not Google Maps in the mainland) · DiDi (taxi backup)</li>
+  <li><b>Docs</b> — 回鄉證 + HK ID + HK passport · Sam: car permits + insurance</li>
+  <li><b>Pack</b> — umbrella, swimwear (hot spring), light layers for AC</li>
+  <li><b>+2 friends</b> — agree their route to Macau + the Cotai meet point (share a WeChat live pin)</li>
 </ul></div>
 
 <div class="foot">Planned 2 July 2026 · prices &amp; times indicative — reconfirm near the date · weather: re-check Friday</div>
 </div>
+<script>
+(function(){
+ if(typeof L==="undefined"){document.getElementById("map").innerHTML='<div style="padding:20px;color:#6b7a8d">Map failed to load — check connection.</div>';return;}
+ var col={fri:"#0f6e56",sat:"#c2410c",sun:"#a16207",alt:"#6b7a8d"};
+ var stops=[
+  {c:[22.295,113.938],d:"fri",t:"Hong Kong (HZMB)",time:"Fri 19:00 · depart",note:"Drive via the bridge",nav:"g:Hong Kong Zhuhai Macau Bridge Hong Kong Port"},
+  {c:[22.17343,113.52068],d:"fri",t:"Sheraton Zhuhai (base)",time:"Fri ~20:45 · check in",note:"華發商都 / 十字門 · Fri hotpot nearby",img:"img/sheraton.jpg",nav:"b:珠海华发喜来登酒店"},
+  {c:[22.53281,113.37606],d:"sat",t:"中山 石岐",time:"Sat 10:30 早茶 · 13:00 乳鴿",note:"摩天輪 & 步行街 in the evening",nav:"b:中山石岐"},
+  {c:[22.44527,113.52302],d:"sat",t:"孫中山故居 (南朗)",time:"Sat · sight en route",note:"Free heritage park + 影視城",nav:"b:孙中山故居 翠亨村"},
+  {c:[22.34622,113.45197],d:"sat",t:"三鄉 hot spring ♨️",time:"Sat 17:00",note:"泉眼溫泉 / 中山溫泉",nav:"b:泉眼温泉 三乡"},
+  {c:[22.15273,113.55839],d:"sun",t:"Macau · Taipa / Cotai",time:"Sun 12:00 · dinner 19:30",note:"Casino, egg tarts, booked dinner",nav:"g:Taipa Macau"},
+  {c:[22.19752,113.54126],d:"sun",t:"大三巴 (old town)",time:"Sun · optional",note:"Ruins of St Paul + Senado Sq",nav:"g:Ruins of St Pauls Macau"},
+  {c:[22.0997,113.52998],d:"alt",t:"Chimelong Ocean Kingdom",time:"optional big day-out",note:"Hengqin · world-class marine park",nav:"b:珠海长隆海洋王国"},
+  {c:[22.12754,113.51218],d:"alt",t:"Hyatt Regency Hengqin",time:"alt hotel",note:"closest to Macau",img:"img/hyatt-regency.jpg",nav:"b:横琴凯悦酒店"}
+ ];
+ var map=L.map("map",{scrollWheelZoom:false});
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(map);
+ var pts=[];
+ stops.forEach(function(s){
+   var q=s.nav.slice(2);
+   var nav=s.nav.charAt(0)==="g"?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q):"https://map.baidu.com/search/"+encodeURIComponent(q);
+   var im=s.img?'<img src="'+s.img+'" style="width:100%;border-radius:6px;margin-top:5px;display:block">':"";
+   var html='<div style="min-width:168px"><b>'+s.t+'</b><br><span style="color:'+col[s.d]+'">'+s.time+'</span><br>'+s.note+im+'<br><a href="'+nav+'" target="_blank" rel="noopener">Navigate ↗</a></div>';
+   L.circleMarker(s.c,{radius:9,color:"#fff",weight:2,fillColor:col[s.d],fillOpacity:1}).addTo(map).bindPopup(html);
+   pts.push(s.c);
+ });
+ var route=[stops[0].c,stops[1].c,stops[2].c,stops[4].c,stops[1].c,stops[5].c,stops[0].c];
+ L.polyline(route,{color:"#6b7a8d",weight:2,dashArray:"5,6",opacity:.6}).addTo(map);
+ map.fitBounds(L.latLngBounds(pts).pad(0.15));
+})();
+</script>
 </body>
 </html>
